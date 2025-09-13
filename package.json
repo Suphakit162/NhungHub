@@ -1,0 +1,30 @@
+{
+  "name": "nhunghub",
+  "version": "1.0.0",
+  "description": "Project about 960103\r Movie & Series API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suphakit162/NhungHub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Suphakit162/NhungHub/issues"
+  },
+  "homepage": "https://github.com/Suphakit162/NhungHub#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "morgan": "^1.10.1",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

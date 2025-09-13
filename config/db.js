@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
-     'Nhunghub', // Database name
+     'nhunghub', // Database name
      'postgres', // Username
      'GGwdst76', // Password
      {
@@ -18,5 +18,13 @@ async function connect() {
     console.error('Unable to connect to the database:', error);
   }
 }
+async function sync() {
+  try {
+    await sequelize.sync();
+    console.log('Connection synced successfully');
+  } catch (error) {
+    console.error('Unable to sync to the database:', error);
+  }
+}
 
-module.exports = { sequelize, connect };
+module.exports = { sequelize, connect, sync };
