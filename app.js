@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const sequelize = require('./config/db'); // นำเข้า sequelize โดยตรง
+const sequelize = require('./config/db'); // นำเข้า sequelize โดยตรง - แตม
 
 const movieRoutes = require('./routes/movieRoutes');
 const userRoutes = require('./routes/userRoutes');

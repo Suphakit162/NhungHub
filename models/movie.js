@@ -1,3 +1,4 @@
+//แตม
 const { DataTypes } = require('sequelize');
 // เปลี่ยนจาก module.exports = Movies;
 // เป็นการส่งออกฟังก์ชันที่รับ sequelize และ DataTypes เข้ามา
@@ -34,4 +35,4 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   return Movies;
-};
+};//แตม

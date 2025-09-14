@@ -4,6 +4,7 @@ const Movie = require('../models/movie');
 
 const router = express.Router();
 
+//แตม
 //ดึง controller มาใช้
 const movieController = require('../controllers/movieController');
 
@@ -11,7 +12,7 @@ const movieController = require('../controllers/movieController');
 router.get('/', movieController.getAllMovies);
 router.get('/search', movieController.searchMovies);
 router.get('/genres', movieController.getGenres);
-router.get('/:id', movieController.getMovieById);
+router.get('/:id', movieController.getMovieById);//แตม
 
 router.post('/data', async (req, res) => {
   const data = req.body;

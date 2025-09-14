@@ -1,3 +1,4 @@
+//แตม
 const movieService = require('../services/movieService');
 
 exports.getAllMovies = async (req, res, next) => {
@@ -34,4 +35,4 @@ exports.getGenres = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-};
+};//แตม

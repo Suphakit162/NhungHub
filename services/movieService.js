@@ -1,3 +1,4 @@
+//แตม
 const db = require('../models');
 const Movie = db.Movies;
 const { Op } = db.Sequelize;
@@ -30,4 +31,4 @@ exports.getGenres = async () => {
     ]
   });
   return genres.map(g => g.genre);
-};
+};//แตม
