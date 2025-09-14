@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const { connect, sync } = require('./config/db');
 
 const movieRoutes = require('./routes/movieRoutes');
-const productRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 
 const app = express();
@@ -17,6 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 
 
 // Setting up routes
+app.use('/movies', movieRoutes);
+app.use('/users', userRoutes);
 
 
 async function initializeDatabase() {

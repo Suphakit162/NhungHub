@@ -7,19 +7,9 @@ const Movies = sequelize.define('Movies', {
     type: DataTypes.STRING,
     allowNull: false
 },
-    movie: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-        isUrl: true 
-    }
-},
     image: {
-    type: DataTypes.STRING, 
-    allowNull: false,
-    validate: {
-        isUrl: true 
-    }
+    type: DataTypes.STRING,
+    allowNull: false
 },
     rating: {
         type: DataTypes.INTEGER,
@@ -30,13 +20,18 @@ const Movies = sequelize.define('Movies', {
         }
 },
     description: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: true
 },
     genre: {
-    type: DataTypes.STRING,
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: true
+},
+    review: {
+    type: DataTypes.ARRAY(DataTypes.TEXT),
     allowNull: true
 }
 });
+
 
 module.exports = Movies;
