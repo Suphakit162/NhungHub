@@ -4,6 +4,8 @@ const { DataTypes } = require('sequelize');
 // เป็นการส่งออกฟังก์ชันที่รับ sequelize และ DataTypes เข้ามา
 // แก้ไข: รับ argument ที่ส่งมาจาก index.js
 module.exports = (sequelize, DataTypes) => {
+  // มาร์ค
+  // สร้างโมเดล table Movies
   const Movies = sequelize.define('Movies', {
     name: {
       type: DataTypes.STRING,

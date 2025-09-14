@@ -1,6 +1,8 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
+  // มาร์ค
+  // สร้างโมเดล table Users
   const Users = sequelize.define('Users', {
     username: {
       type: DataTypes.STRING,

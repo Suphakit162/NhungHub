@@ -4,6 +4,8 @@ const User = require('../models/user');
 
 const router = express.Router();
 
+//มาร์ค 
+//นำข้อมูลรูปแบบ JSON มาเพิ่มในตาราง Users
 router.post('/data', async (req, res) => {
   const data = req.body;
   const users = Array.isArray(data)

@@ -1,12 +1,14 @@
 const { Sequelize } = require('sequelize');
 
+//มาร์ค
+//เชื่อมต่อฐานข้อมูล PostgreSQL
 const sequelize = new Sequelize(
-     'nhunghub', // Database name
-     'postgres', // Username
-     'suphakit25252523', // Password
+     'nhunghub', // อันนี้อย่าลืมลง sql ชื่อเดียวกันก่อนรัน
+     'postgres', // Username เปลี่ยนตามของตัวเอง อย่าลืม
+     'suphakit25252523', // Password เปลี่ยนตามของตัวเอง อย่าลืม
      {
-       host: 'localhost', // Connect to your local database
-       dialect: 'postgres' // Tell sequelize to use Postgres
+       host: 'localhost',
+       dialect: 'postgres' 
      }
    );
 
