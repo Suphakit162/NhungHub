@@ -5,7 +5,7 @@
 -- Dumped from database version 17.5
 -- Dumped by pg_dump version 17.5
 
--- Started on 2025-09-14 11:19:50
+-- Started on 2025-09-14 13:46:36
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,113 +18,6 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
-SET default_tablespace = '';
-
-SET default_table_access_method = heap;
-
---
--- TOC entry 220 (class 1259 OID 24901)
--- Name: Movies; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."Movies" (
-    id integer NOT NULL,
-    name character varying(255) NOT NULL,
-    image character varying(255) NOT NULL,
-    rating integer NOT NULL,
-    description text,
-    genre character varying(255)[],
-    review text[],
-    "createdAt" timestamp with time zone NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL
-);
-
-
-ALTER TABLE public."Movies" OWNER TO postgres;
-
---
--- TOC entry 219 (class 1259 OID 24900)
--- Name: Movies_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public."Movies_id_seq"
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER SEQUENCE public."Movies_id_seq" OWNER TO postgres;
-
---
--- TOC entry 4907 (class 0 OID 0)
--- Dependencies: 219
--- Name: Movies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public."Movies_id_seq" OWNED BY public."Movies".id;
-
-
---
--- TOC entry 218 (class 1259 OID 24883)
--- Name: Users; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."Users" (
-    id integer NOT NULL,
-    username character varying(255) NOT NULL,
-    email character varying(255) NOT NULL,
-    password character varying(255) NOT NULL,
-    "createdAt" timestamp with time zone NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL
-);
-
-
-ALTER TABLE public."Users" OWNER TO postgres;
-
---
--- TOC entry 217 (class 1259 OID 24882)
--- Name: Users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public."Users_id_seq"
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER SEQUENCE public."Users_id_seq" OWNER TO postgres;
-
---
--- TOC entry 4908 (class 0 OID 0)
--- Dependencies: 217
--- Name: Users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public."Users_id_seq" OWNED BY public."Users".id;
-
-
---
--- TOC entry 4748 (class 2604 OID 24904)
--- Name: Movies id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."Movies" ALTER COLUMN id SET DEFAULT nextval('public."Movies_id_seq"'::regclass);
-
-
---
--- TOC entry 4747 (class 2604 OID 24886)
--- Name: Users id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."Users" ALTER COLUMN id SET DEFAULT nextval('public."Users_id_seq"'::regclass);
-
 
 --
 -- TOC entry 4901 (class 0 OID 24901)
@@ -184,25 +77,7 @@ SELECT pg_catalog.setval('public."Movies_id_seq"', 10, true);
 SELECT pg_catalog.setval('public."Users_id_seq"', 10, true);
 
 
---
--- TOC entry 4752 (class 2606 OID 24908)
--- Name: Movies Movies_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."Movies"
-    ADD CONSTRAINT "Movies_pkey" PRIMARY KEY (id);
-
-
---
--- TOC entry 4750 (class 2606 OID 24890)
--- Name: Users Users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."Users"
-    ADD CONSTRAINT "Users_pkey" PRIMARY KEY (id);
-
-
--- Completed on 2025-09-14 11:19:50
+-- Completed on 2025-09-14 13:46:36
 
 --
 -- PostgreSQL database dump complete
