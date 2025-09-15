@@ -3,13 +3,19 @@ const morgan = require('morgan');
 const sequelize = require('./config/db'); // นำเข้า sequelize โดยตรง - แตม
 
 const movieRoutes = require('./routes/movieRoutes');
-const userRoutes = require('./routes/userRoutes');
+//const userRoutes = require('./routes/userRoutes');
 
 const app = express();
+
+const authRoutes = require("./routes/auth.routes");
+const userRoutes = require("./routes/user.routes");
 
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use("/auth", authRoutes);
+//app.use("/users", userRoutes);
 
 app.use('/movies', movieRoutes);
 app.use('/users', userRoutes);
@@ -25,6 +31,7 @@ async function initializeDatabase() {
   }
 }
 initializeDatabase();
+
 
 app.listen(3000, () => {
   console.log('Listening on port 3000');
