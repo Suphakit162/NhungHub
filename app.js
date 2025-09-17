@@ -2,23 +2,33 @@ const express = require('express');
 const morgan = require('morgan');
 const sequelize = require('./config/db'); // นำเข้า sequelize โดยตรง - แตม
 
+// routes
 const movieRoutes = require('./routes/movieRoutes');
-//const userRoutes = require('./routes/userRoutes');
-
-const app = express();
+const streamRoutes = require('./routes/streamRoutes');
 
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 
-app.use(morgan('tiny'));
+// Middlewares
+const logger = require('./middlewares/logger');
+const errorHandler = require('./middlewares/errorHandler');
+const { authenticateToken } = require('./middlewares/authMiddleware');
+
+const app = express();
+
+app.use(morgan('tiny')); // Log แบบง่าย
+// app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Routes
 app.use("/auth", authRoutes);
-//app.use("/users", userRoutes);
-
+app.use("/users", userRoutes);
 app.use('/movies', movieRoutes);
-app.use('/users', userRoutes);
+app.use('/streams', streamRoutes);
+
+// Error handler 
+// app.use(errorHandler);
 
 async function initializeDatabase() {
   try {
