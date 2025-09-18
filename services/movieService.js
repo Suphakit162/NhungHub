@@ -32,3 +32,4 @@ exports.getGenres = async () => {
   });
   return genres.map(g => g.genre);
 };//แตม
+

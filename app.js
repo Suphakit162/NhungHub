@@ -9,6 +9,8 @@ const streamRoutes = require('./routes/streamRoutes');
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 
+const adminRoutes = require('./routes/adminRoutes');
+
 // Middlewares
 const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
@@ -26,6 +28,7 @@ app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use('/movies', movieRoutes);
 app.use('/streams', streamRoutes);
+app.use("/admin", adminRoutes);
 
 // Error handler 
 // app.use(errorHandler);
