@@ -5,7 +5,7 @@ const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize(
      'nhunghub', // อันนี้อย่าลืมลง sql ชื่อเดียวกันก่อนรัน
      'postgres', // Username เปลี่ยนตามของตัวเอง อย่าลืม
-     'GGwdst76', // Password เปลี่ยนตามของตัวเอง อย่าลืม
+     'copy2548', // Password เปลี่ยนตามของตัวเอง อย่าลืม
      {
        host: 'localhost',
        dialect: 'postgres' 

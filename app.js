@@ -4,11 +4,8 @@ const sequelize = require('./config/db'); // นำเข้า sequelize โด
 
 // routes
 const movieRoutes = require('./routes/movieRoutes');
-const streamRoutes = require('./routes/streamRoutes');
-
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
-
 const adminRoutes = require('./routes/adminRoutes');
 
 // Middlewares
@@ -19,7 +16,7 @@ const { authenticateToken } = require('./middlewares/authMiddleware');
 const app = express();
 
 app.use(morgan('tiny')); // Log แบบง่าย
-// app.use(logger);
+app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -27,11 +24,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use('/movies', movieRoutes);
-app.use('/streams', streamRoutes);
 app.use("/admin", adminRoutes);
 
 // Error handler 
-// app.use(errorHandler);
+app.use(errorHandler);
 
 async function initializeDatabase() {
   try {
@@ -44,7 +40,6 @@ async function initializeDatabase() {
   }
 }
 initializeDatabase();
-
 
 app.listen(3000, () => {
   console.log('Listening on port 3000');
