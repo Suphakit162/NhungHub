@@ -1,4 +1,4 @@
-const { Admins, Movies, Users } = require('../models');
+const { Admins, Movies, User } = require('../models');
 
 // เช็คว่าผู้ใช้เป็น admin หรือไม่
 async function checkAdmin(name, password) {
@@ -7,6 +7,12 @@ async function checkAdmin(name, password) {
   });
   return !!admin;
 }
+
+// {
+//     "name": "nhunghubadmin",
+//     "password": "nhunghub6789",
+//     "table": "Movies"
+// }
 
 // ดูข้อมูลลงตารางตามที่ระบุ
 exports.getallData = async (req, res) => {
@@ -20,7 +26,7 @@ exports.getallData = async (req, res) => {
     if (table === 'Movies') {
         result = await Movies.findAll();
     } else if (table === 'Users') {
-        result = await Users.findAll();
+        result = await User.findAll();
     } else {
         return res.status(400).json({ error: 'Invalid table name' });
     }
@@ -30,6 +36,21 @@ exports.getallData = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// {
+//   "name": "nhunghubadmin",
+//   "password": "nhunghub6789",
+//   "table": "Movies",
+//   "data": {
+//     "name": "Inception",
+//     "image": "poster.jpg",
+//     "rating": 5
+//     "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+//     "genres": ["Sci-Fi", "Action"],
+//     "reviews": ["Amazing movie!", "Mind-blowing visuals!"],
+//
+//   }
+// }
 
 // เพิ่มข้อมูลในตารางตามที่ระบุ
 exports.addData = async (req, res) => {
@@ -46,8 +67,8 @@ exports.addData = async (req, res) => {
         : await Movies.create(data);
     } else if (table === 'Users') {
       result = Array.isArray(data)
-        ? await Users.bulkCreate(data)
-        : await Users.create(data);
+        ? await User.bulkCreate(data)
+        : await User.create(data);
     } else {
       return res.status(400).json({ error: 'Invalid table' });
     }
@@ -58,22 +79,6 @@ exports.addData = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-
-// {
-//   "username": "nhunghub",
-//   "password": "nhunghub6789",
-//   "table": "Movies",
-//   "data": {
-//     "name": "Inception",
-//     "image": "poster.jpg",
-//     "rating": 5
-//     "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-//     "genres": ["Sci-Fi", "Action"],
-//     "reviews": ["Amazing movie!", "Mind-blowing visuals!"],
-//
-//   }
-// }
-
 
 // ลบข้อมูล
 exports.deleteData = async (req, res) => {
@@ -88,7 +93,7 @@ exports.deleteData = async (req, res) => {
     if (table === 'Movies') {
         result = await Movies.destroy({ where: { id } });
     } else if (table === 'Users') {
-        result = await Users.destroy({ where: { id } });
+        result = await User.destroy({ where: { id } });
     } else {
         return res.status(400).json({ error: 'Invalid table name' });
     }
