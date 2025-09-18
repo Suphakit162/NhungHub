@@ -1,17 +1,11 @@
 const express = require('express');
 
-const { Admins } = require('../models');
-
+const adminController = require('../controllers/adminController');
 const router = express.Router();
 
-//มาร์ค 
-//นำข้อมูลรูปแบบ JSON มาเพิ่มในตาราง Admins
-router.post('/data', async (req, res) => {
-    const data = req.body;
-    const admins = Array.isArray(data)
-                    ? await Admins.bulkCreate(data)
-                    : await Admins.create(data);
-    res.json(admins);
-});
+//นำ Admin controller มาใช้
+router.get('/Getdata',adminController.getallData);
+router.post('/Add',adminController.addData);
+router.delete('/delete',adminController.deleteData);
 
 module.exports = router;
