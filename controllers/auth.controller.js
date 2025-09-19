@@ -68,7 +68,7 @@ exports.register = async (req, res) => {
           const accessToken = jwt.sign(
             { id: user.id, email: user.email },
             SECRET,
-            { expiresIn: "15m" }
+            { expiresIn: "5m" }
           );
           const refreshToken = jwt.sign(
             { id: user.id, email: user.email },
@@ -110,7 +110,7 @@ exports.register = async (req, res) => {
       const accessToken = jwt.sign(
         { id: user.id, email: user.email },
         SECRET,
-        { expiresIn: "15m" }
+        { expiresIn: "5m" }
       );
       // ส่ง access token ใหม่กลับไป
       res.json({ accessToken });
