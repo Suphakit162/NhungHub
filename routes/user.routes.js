@@ -2,10 +2,9 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/user.controller");
-const { authenticateToken } = require("../middlewares/authMiddleware");
-const { User } = require("../models"); 
 
-router.get("/:id/profile", authenticateToken, userController.getProfile);
-router.put("/:id/profile", authenticateToken, userController.updateProfile);
+
+router.get("/:id", userController.getProfile);
+router.put("/:id/profile", userController.updateProfile);
 
 module.exports = router;

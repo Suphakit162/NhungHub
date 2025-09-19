@@ -20,29 +20,36 @@ exports.getProfile = async (req, res) => {
   }
 };
 
-//ใช้อัปเดตข้อมูลโปรไฟล์ของ user
+// ใช้สำหรับอัปเดตข้อมูลโปรไฟล์ของผู้ใช้
 exports.updateProfile = async (req, res) => {
   try {
+    // ดึง id ของผู้ใช้จาก params และแปลงเป็นตัวเลขฐาน 10
+    const id = parseInt(req.params.id, 10);
+
+    // ดึงค่าที่ต้องการอัปเดตจาก body ของ request
     const { username, email, password } = req.body;
-    const user = await User.findByPk(req.params.id);
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
+    // ค้นหาผู้ใช้ในฐานข้อมูลตาม primary key
+    const user = await User.findByPk(id);
 
+    // ถ้าไม่พบผู้ใช้ ส่ง status 404 (Not Found) พร้อมข้อความ
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // สร้าง object สำหรับเก็บค่าที่จะอัปเดต
     const updateData = {};
-    if (username) updateData.username = username;
-    if (email) updateData.email = email.trim(); // ตัด space กัน validation error
-    if (password) updateData.password = password; // bcrypt จะ hash ผ่าน hook
+    if (username) updateData.username = username.trim(); // trim space ก่อนเก็บ
+    if (email) updateData.email = email.trim(); // trim space ก่อนเก็บ
+    if (password) updateData.password = password; // password จะถูก hash ผ่าน hook ของ Sequelize
 
-    await user.update(updateData);
+    // อัปเดตข้อมูลผู้ใช้ในฐานข้อมูล
+    const updatedUser = await user.update(updateData);
 
-    res.json({ message: "Profile updated successfully", user });
+    // ส่ง response กลับ พร้อมข้อความสำเร็จและข้อมูลผู้ใช้ที่อัปเดตแล้ว
+    res.json({ message: "Profile updated successfully", user: updatedUser });
   } catch (err) {
-    res.status(500).json({
-      message: "Failed to update profile",
-      error: err.message,
-    });
+    // ถ้าเกิดข้อผิดพลาดอื่น ๆ ส่ง status 500 (Internal Server Error)
+    res.status(500).json({ message: "Failed to update profile", error: err.message });
   }
 };
+
 

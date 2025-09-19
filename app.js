@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-const sequelize = require('./config/db'); // นำเข้า sequelize โดยตรง - แตม
+const sequelize = require('./config/db'); 
+const session = require('express-session');
 
 // routes
 const movieRoutes = require('./routes/movieRoutes');
@@ -11,9 +12,16 @@ const adminRoutes = require('./routes/adminRoutes');
 // Middlewares
 const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
-const { authenticateToken } = require('./middlewares/authMiddleware');
+
 
 const app = express();
+
+app.use(session({
+  secret: "supersecret",       // แนะนำใช้ process.env.JWT_SECRET
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }    // ถ้าใช้ https ค่อยเปลี่ยนเป็น true
+}));
 
 app.use(morgan('tiny')); // Log แบบง่าย
 app.use(logger);
