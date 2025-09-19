@@ -38,21 +38,6 @@ exports.getallData = async (req, res) => {
   }
 };
 
-// {
-//   "name": "nhunghubadmin",
-//   "password": "nhunghub6789",
-//   "table": "Movies",
-//   "data": {
-//     "name": "Inception",
-//     "image": "poster.jpg",
-//     "rating": 5,
-//     "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-//     "genres": ["Sci-Fi", "Action"],
-//     "reviews": ["Amazing movie!", "Mind-blowing visuals!"]
-//
-//   }
-// }
-
 // ค้นหาข้อมูลตาม id
 exports.getOneData = async (req, res) => {
   try {
@@ -79,6 +64,20 @@ exports.getOneData = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// {
+//   "name": "nhunghubadmin",
+//   "password": "nhunghub6789",
+//   "table": "Movies",
+//   "data": {
+//     "name": "Inception",
+//     "image": "poster.jpg",
+//     "rating": 5,
+//     "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+//     "genre": ["Sci-Fi", "Action"],
+//     "review": ["Amazing movie!", "Mind-blowing visuals!"]
+//   }
+// }
 
 // เพิ่มข้อมูลในตารางตามที่ระบุ
 exports.addData = async (req, res) => {
