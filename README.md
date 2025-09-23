@@ -64,7 +64,8 @@ npm start
 - `POST /users/register` : สมัครสมาชิก
 - `POST /auth/login` : เข้าสู่ระบบ
 
-### Admin (Admin ทั้งหมดต้องระบุ Name และ password ให้ถูกต้องถายใน body ก่อน ถึงจะสามารถส่งคืนข้อมูลได้)
+### Admin 
+Admin ทั้งหมดต้องระบุ Name และ password ให้ถูกต้องถายใน body ก่อน ถึงจะสามารถส่งคืนข้อมูลได้
 - `GET /admin` : ดึงข้อมูลทั้งหมดจาก Table Movies หรือ Users ตามที่ระบุใน Body
 - `GET /admin/:id` : ดึงข้อมูลตาม id จาก Table Movies หรือ Users ตามที่ระบุใน Body
 - `POST /admin/add` : เพิ่มข้อมุลภายใน Table Movies หรือ Users ตามที่ระบุใน Body
