@@ -1,3 +1,98 @@
 # NhungHub
-Project about 960103
+
+Project about 960103  
 Movie & Series API
+
+มี API สองฝั่งคือ Movies และ Users
+
+---
+
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Project Structure](#project-structure)
+- [Contributors](#contributors)
+
+---
+
+## Features
+- RESTful API สำหรับจัดการข้อมูลหนังและผู้ใช้
+- ใช้ Express, Sequelize, PostgreSQL
+- รองรับ CRUD (Create, Read, Update, Delete)
+- มีระบบ Auth สำหรับผู้ใช้และแอดมิน
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/yourusername/nhunghub.git
+cd nhunghub
+npm install express sequelize pg pg-hstore express-session morgan bcrypt
+```
+
+- ตั้งค่า database ใน `config/db.js`
+- นำเข้าไฟล์ `nhunghub.sql` เข้าฐานข้อมูล PostgreSQL
+
+---
+
+## Usage
+
+```bash
+node app.js
+```
+หรือ  
+```bash
+npm start
+```
+
+---
+
+## API Endpoints
+
+### Movies
+- `GET /movies` : ดึงหนังทั้งหมด
+- `GET /movies/:id` : ดึงหนังตาม id
+- `GET /movies/search?keyword=xxx` : ค้นหาหนังด้วย keyword
+- `GET /movies/genres` : ดึง genre ทั้งหมด
+
+### Users
+- `GET /users` : ดึงผู้ใช้ทั้งหมด
+- `GET /users/:id` : ดึงผู้ใช้ตาม id
+- `POST /users/register` : สมัครสมาชิก
+- `POST /auth/login` : เข้าสู่ระบบ
+
+### Admin
+- `GET /admin` : ดึงแอดมินทั้งหมด
+- `GET /admin/:id` : ดึงแอดมินตาม id
+- `POST /admin/add` : เพิ่มแอดมิน
+- `PUT /admin/update/:id` : แก้ไขแอดมิน
+- `DELETE /admin/delete/:id` : ลบแอดมิน
+
+---
+
+## Project Structure
+
+```
+NhungHub/
+│
+├── controllers/
+├── models/
+├── routes/
+├── services/
+├── config/
+├── middlewares/
+├── app.js
+├── nhunghub.sql
+└── README.md
+```
+
+---
+
+## Contributors
+- ธนกร กันอูบ 672110142
+- นฤดล เมืองอุดร 672110147
+- ศุภกฤต แสนวงค์คำ 672110162
+- พีรวิชญ์ เตจ๊ะใหม่ 672110238
