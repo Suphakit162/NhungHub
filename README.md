@@ -64,12 +64,12 @@ npm start
 - `POST /users/register` : สมัครสมาชิก
 - `POST /auth/login` : เข้าสู่ระบบ
 
-### Admin
-- `GET /admin` : ดึงแอดมินทั้งหมด
-- `GET /admin/:id` : ดึงแอดมินตาม id
-- `POST /admin/add` : เพิ่มแอดมิน
-- `PUT /admin/update/:id` : แก้ไขแอดมิน
-- `DELETE /admin/delete/:id` : ลบแอดมิน
+### Admin (Admin ทั้งหมดต้องระบุ Name และ password ให้ถูกต้องถายใน body ก่อน ถึงจะสามารถส่งคืนข้อมูลได้)
+- `GET /admin` : ดึงข้อมูลทั้งหมดจาก Table Movies หรือ Users ตามที่ระบุใน Body
+- `GET /admin/:id` : ดึงข้อมูลตาม id จาก Table Movies หรือ Users ตามที่ระบุใน Body
+- `POST /admin/add` : เพิ่มข้อมุลภายใน Table Movies หรือ Users ตามที่ระบุใน Body
+- `PUT /admin/update/:id` : แก้ไขข้อมูลตาม id จาก Table Movies หรือ Users ตามที่ระบุใน Body
+- `DELETE /admin/delete/:id` : ลบข้อมูลตาม id จาก Table Movies หรือ Users ตามที่ระบุใน Body
 
 ---
 
