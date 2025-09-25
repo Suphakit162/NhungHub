@@ -62,7 +62,16 @@ npm start
 - `GET /users` : ดึงผู้ใช้ทั้งหมด
 - `GET /users/:id` : ดึงผู้ใช้ตาม id
 - `POST /users/register` : สมัครสมาชิก
+  {
+  "username": "alice",
+  "email": "alice@example.com",
+  "password": "passAlice1"
+}
 - `POST /auth/login` : เข้าสู่ระบบ
+  {
+  "email": "alice@example.com",
+  "password": "passAlice1"
+}
 
 ### Admin 
 Admin ทั้งหมดต้องระบุ Name และ password ให้ถูกต้องถายใน body ก่อน ถึงจะสามารถส่งคืนข้อมูลได้
