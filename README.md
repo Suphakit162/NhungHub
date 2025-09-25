@@ -64,13 +64,13 @@ npm start
 - `POST /users/register` : สมัครสมาชิก
   {
   "username": "alice",
-  "email": "alice@example.com",
-  "password": "passAlice1"
+  "email": "pop@example.com",
+  "password": "passPop1"
 }
 - `POST /auth/login` : เข้าสู่ระบบ
   {
-  "email": "alice@example.com",
-  "password": "passAlice1"
+  "email": "pop@example.com",
+  "password": "passPop1"
 }
 
 ### Admin 
