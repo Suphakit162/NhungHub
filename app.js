@@ -13,7 +13,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
 
-
+// Initialize express app
 const app = express();
 
 app.use(session({
